@@ -16,3 +16,7 @@ const everydayPack = new Backpack(
 
 console.log("The everydayPack object:", everydayPack);
 console.log("The pocketNum value:", everydayPack.pocketNum);
+
+const monBp = new Backpack("Monday BP", 25, "silver", 10, 20, 20, false);
+console.log(monBp);
+monBp.toggleLid();
