@@ -59,21 +59,15 @@ const newChair2 = function (chair) {
   return chairE;
 };
 
-const newChair3 = (chair) => {
+const addChair = (chair) => {
   console.log("fn arrow");
-  const chairE = document.createElement("chair");
-  chairE.innerHTML = `<h3>${chair.name}</h3>
-  <ul>
-    <li>id : ${chair.id} </li>
-    <li>type : ${chair.type} </li>
-    <li>material : ${chair.material} </li>
-    <li>color : ${chair.color} </li>
-  </ul>`;
-  chairE.style.color = chair.color;
+  const chairE = newChair2(chair);
+  let mainE = document.querySelector("main");
+  mainE.append(chairE);
   return chairE;
 };
 
 const mainE = document.querySelector("main");
 mainE.innerHTML = `<h2> Chairs </h2>`;
 mainE.append(newChair2(chair1));
-mainE.append(newChair2(chair2));
+//mainE.append(newChair2(chair2));
