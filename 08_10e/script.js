@@ -37,8 +37,19 @@ const printHTML = (finalTip) => {
   document.querySelector("main").append(tipTable);
 };
 
+const printUl = (finalTip) => {
+  const tipUl = document.createElement("ul");
+  tipUl.innerHTML = `
+    <li> Sum before tip: <span> ${finalTip.sum}</span></li>
+    <li> Tip percentage:<span> ${finalTip.percentage}</span></li>
+    <li> Tip:<span>${finalTip.tip}</span></li>
+    <li> Total:<span>${finalTip.total}</span></li>
+  `;
+  document.querySelector("main").append(tipUl);
+};
+
 // Create a finalTip object with all the data. Send it to the printHTML callback.
-const tipCalculator = (sum, percentage, locale, currency, printHTML) => {
+const tipCalculator = (sum, percentage, locale, currency, printCallback) => {
   let tip = sum * (percentage / 100);
   let total = sum + tip;
 
@@ -49,7 +60,7 @@ const tipCalculator = (sum, percentage, locale, currency, printHTML) => {
     total: formatter(locale, currency, total),
   };
 
-  printHTML(finalTip);
+  printCallback(finalTip);
 };
 
-tipCalculator(29.95, 18, "de-DE", "EUR", printHTML);
+tipCalculator(29.95, 18, "de-DE", "EUR", printUl);
