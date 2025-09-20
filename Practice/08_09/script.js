@@ -24,6 +24,10 @@ const frogpack = {
   },
   lidOpen: false,
   image: "../../assets/images/frog.svg",
+  description: `Green frog-shaped backpack sitting upright\
+    with three visible pockets and adjustable straps,\
+    set against a plain background.\
+    The backpack appears cheerful and playful.`,
   toggleLid: function (lidStatus) {
     this.lidOpen = lidStatus;
   },
@@ -57,3 +61,30 @@ const content = `
       }</span></li>
     </ul>  
 `;
+
+const newFigure = (backpack) => {
+  //const imgMarkUp = `<img src="${backpack.image}" alt="Green frog-shaped backpack"/>
+  //<figcaption></figcaption>`;
+  const figureE = document.createElement("figure");
+  const imgE = document.createElement("img");
+  imgE.src = backpack.image;
+  imgE.alt = "Green frog-shaped backpack";
+  imgE.style.maxHeight = "50%";
+  imgE.style.maxWidth = "60%";
+
+  const figcaptionE = document.createElement("figcaption");
+  figcaptionE.innerText = frogpack.description;
+  //figureE.innerHTML = imgMarkUp;
+  figureE.append(imgE, figcaptionE);
+  return figureE;
+};
+
+const addArticle = (backpack) => {
+  const articleE = document.createElement("article");
+  articleE.innerHTML = content;
+  articleE.prepend(newFigure(backpack));
+  document.querySelector("body > main").append(articleE);
+  return articleE;
+};
+
+addArticle(frogpack);
