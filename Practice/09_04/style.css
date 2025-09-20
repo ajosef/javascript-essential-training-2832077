@@ -22,3 +22,11 @@ body {
   height: 6rem;
   background-color: hsl(0, 0%, 90%);
 }
+
+.cell.clicked {
+  background-color: #add6ff;
+}
+
+/* body.highlight {
+  background-color: darkolivegreen;
+} */
